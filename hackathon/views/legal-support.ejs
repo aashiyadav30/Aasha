@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Support</title>
+    <link rel="stylesheet" href="/css1/legal-support.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #D3D3D3; /* Light grey background */
+            color: black; /* Changed text color to black for better contrast */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #001F3F; /* Header color */
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        /* Main Content Styles */
+        .content {
+            max-width: 800px;
+            margin: 40px auto; /* Center the content */
+            background-color: #001F3F; /* Changed to shade #001F3F */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        h2 {
+            text-align: center; /* Center heading */
+            color: white; /* Changed heading color to white */
+            margin-bottom: 20px; /* Space below heading */
+        }
+
+        .counselors {
+            display: flex; /* Flexbox for layout */
+            flex-wrap: wrap; /* Allow wrapping to new line */
+            justify-content: space-between; /* Space between counselors */
+        }
+
+        .counselor {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            align-items: center; /* Center align items */
+            margin-bottom: 20px; /* Space between counselor sections */
+            width: calc(50% - 10px); /* Two in a row with spacing */
+        }
+
+        .counselor img {
+            width: 80px; /* Width for counselor pictures */
+            height: 80px; /* Height for counselor pictures */
+            border-radius: 50%; /* Make pictures circular */
+            margin-bottom: 10px; /* Space below image */
+        }
+
+        .counselor-info {
+            text-align: center; /* Center text */
+            color: white; /* Changed text color to white */
+        }
+
+        .counselor-info h3 {
+            margin: 0; /* Remove margin for name */
+        }
+
+        .counselor-info p {
+            margin: 5px 0; /* Space between paragraphs */
+        }
+
+        /* Button Styles */
+        .back-btn {
+            display: block;
+            margin: 20px auto; /* Center the button */
+            background: #16497d; /* Gradient background for the button */
+            color: white; /* Button text color */
+            border: 2px solid white; /* Clear white border */
+            padding: 10px 15px; /* Button padding */
+            border-radius: 5px; /* Rounded corners for button */
+            cursor: pointer; /* Pointer on hover */
+            width: 100%; /* Full width button */
+            font-size: 16px; /* Button font size */
+            transition: background 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1); /* Darker shade on hover */
+            border-color: #e100ff; /* Change border color on hover for better visibility */
+        }
+
+        @media (max-width: 600px) {
+            .counselor {
+                width: 100%; /* Full width on small screens */
+            }
+        }
+
+        a {
+            color: white; /* Changed link color to white */
+            text-decoration: none; /* Remove underline */
+            font-size: 16px;
+            display: inline-block; /* Ensure proper alignment */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Legal Support</h1>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="content">
+        <h2>Meet Our Counsellors</h2>
+
+        <div class="counselors">
+            <% counselors.forEach(counselor => { %>
+                <div class="counselor">
+                    <img src="<%= counselor.image %>" alt="<%= counselor.name %> - Legal Counselor">
+                    <div class="counselor-info">
+                        <h3><%= counselor.name %></h3>
+                        <p><strong>Email:</strong> <%= counselor.email %></p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+
+        <a href="/dashboard">
+            <button class="back-btn">Go Back</button>
+        </a>
+    </main>
+
+</body>
+</html>

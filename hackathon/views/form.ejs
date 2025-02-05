@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Form</title>
+    <link rel="stylesheet" href="/css1/form.css"> <!-- Link to your CSS file -->
+    <script>
+        function toggleFirIdField() {
+            const yesOption = document.querySelector('input[name="form_filled"][value="yes"]');
+            const firIdGroup = document.querySelector('.fir-id-group');
+            if (yesOption.checked) {
+                firIdGroup.style.display = 'block'; // Show FIR ID field if "Yes" is selected
+                document.getElementById('fir_id').setAttribute('required', 'required');
+            } else {
+                firIdGroup.style.display = 'none'; // Hide FIR ID field if "No" is selected
+                document.getElementById('fir_id').removeAttribute('required');
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <header>
+        <h1>Report</h1>
+    </header>
+
+    <div class="form-container">
+        <h2>Submit Your Details</h2>
+        <form action="<%= actionUrl %>" method="post"> <!-- Dynamic action URL -->
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" required>
+            </div>
+            <div class="form-group">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div class="form-group">
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label>Has an FIR been filed?</label>
+                <div class="yes-no-group">
+                    <label>
+                        <input type="radio" name="form_filled" value="yes" onclick="toggleFirIdField()" required> Yes
+                    </label>
+                    <label>
+                        <input type="radio" name="form_filled" value="no" onclick="toggleFirIdField()" required> No
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group fir-id-group" style="display:none;">
+                <label for="fir_id">FIR ID:</label>
+                <input type="text" id="fir_id" name="fir_id">
+            </div>
+
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+</body>
+</html>

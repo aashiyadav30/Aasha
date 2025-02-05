@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+
+    <!-- Google Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" />
+
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #FFFDD0; /* Cream for the overall background */
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #C4C5D3; /* Light grey for text and content */
+      }
+
+      #chatContainer {
+        background-color: #2B3D66; /* Aegean for the chat container */
+        border-radius: 20px;
+        border: 1px solid #B3B4BD; /* Light grey border for contrast */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Softer shadow for depth */
+        width: 440px;
+        max-height: 85vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      h1 {
+        color: #E6E7F0; /* Lighter shade for the header */
+        margin-bottom: 20px;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      #messages {
+        background-color: #008080; /* Teal for the message area */
+        padding: 15px;
+        border-radius: 15px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle inner shadow */
+        height: 65vh;
+        overflow-y: auto;
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .message {
+        display: flex;
+        font-size: 14px;
+        max-width: 75%;
+        padding: 12px;
+        border-radius: 18px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Softer shadow around messages */
+        position: relative;
+      }
+
+      .message.right {
+        background-color: #C4C5D3; /* Light grey for sent messages */
+        color: #2B3D66; /* Aegean for dark text inside sent messages */
+        align-self: flex-end;
+      }
+
+      .message.left {
+        background-color: rgb(90, 177, 177); /* Teal for received messages */
+        color: white;
+        align-self: flex-start;
+      }
+
+      .timestamp {
+        display: block;
+        font-size: 10px;
+        color: #DDD; /* Lighter timestamp */
+        margin-top: 5px;
+        text-align: right;
+      }
+
+      #messageContainer {
+        display: flex;
+      }
+
+      #message {
+        flex-grow: 1;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid black; /* Light grey border for the input box */
+        font-size: 16px;
+        margin-right: 10px;
+        background-color: #FFFDD0; /* Cream for the text box */
+        color: black; /* WHENTYPING TEXT COLOR */
+        box-shadow: inset 0 2px 4px rgba(6, 195, 212, 0.15);
+      }
+
+      #sendBtn {
+        background-color: #C4C5D3; /* Light grey button */
+        color: #2B3D66; /* Aegean for dark text for better contrast */
+        padding: 12px 18px;
+        border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+        box-shadow: 0 4px 8px rgba(164, 21, 21, 0.1); /* Soft shadow for button */
+      }
+
+      #sendBtn:hover {
+        background-color: #A7A8B3; /* Darker grey hover effect */
+      }
+
+      /* Add scrollbar styling */
+      #messages::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      #messages::-webkit-scrollbar-thumb {
+        background-color: rgba(26, 221, 12, 0.2);
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="chatContainer">
+      <h1>Chat</h1>
+
+      <!-- Chat messages window -->
+      <div id="messages"></div>
+
+      <!-- Message input and send button -->
+      <div id="messageContainer">
+        <input type="text" id="message" placeholder="Enter your message" />
+        <button id="sendBtn">Send</button>
+      </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+      const sendBtn = document.getElementById("sendBtn");
+      const messageInput = document.getElementById("message");
+      const allMessages = document.getElementById("messages");
+
+      // Assign a random name to the user
+      const userName = `User_${Math.floor(Math.random() * 1000)}`;
+      console.log("You are:", userName);
+
+      const formatTime = () => {
+        const date = new Date();
+        return `${date.getHours()}:${date.getMinutes().toString().padStart(2, '0')}`;
+      };
+
+      // Receive messages from the server
+      socket.on("message", ({ message, sender }) => {
+        if (sender !== userName) {
+          addMessageToDOM(message, false, sender);
+        }
+      });
+
+      // Send message on button click
+      sendBtn.addEventListener("click", (e) => {
+        const message = messageInput.value;
+        if (message.trim() !== "") {
+          addMessageToDOM(message, true, userName);
+          socket.emit("user-message", { message, sender: userName });
+          messageInput.value = ""; // Clear input after sending
+        }
+      });
+
+      // Add message to the DOM
+      const addMessageToDOM = (message, isOwnMessage, sender) => {
+        const p = document.createElement("p");
+        const div = document.createElement("div");
+
+        p.innerText = `${sender}: ${message}`;
+        const timestamp = document.createElement("span");
+        timestamp.classList.add("timestamp");
+        timestamp.innerText = formatTime();
+        p.appendChild(timestamp);
+
+        div.classList.add("message");
+        div.classList.add(isOwnMessage ? "right" : "left");
+
+        div.appendChild(p);
+        allMessages.appendChild(div);
+
+        // Scroll to the bottom of the chat
+        allMessages.scrollTop = allMessages.scrollHeight;
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/css/home.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #7f00ff, #e100ff); /* Purple gradient */
+            color: white;
+            animation: fadeIn 1s ease-in; /* Faster fade in animation */
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Column layout for hero and other sections */
+        }
+
+        /* Fade In Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex; /* Flex layout for hero */
+            height: 80vh; /* Full height of the viewport */
+        }
+
+        .text-container {
+            flex: 1; /* Text section takes half the width */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center the text vertically */
+            padding: 20px; /* Add padding for spacing */
+        }
+
+        .text-container h1 {
+            font-size: 48px;
+            margin-bottom: 10px; /* Space between title and subtitle */
+        }
+
+        .text-container p {
+            font-size: 24px; /* Increased font size for subtitle */
+            margin-bottom: 30px; /* Space below the paragraph */
+        }
+
+        .hero-image {
+            flex: 1; /* Image section takes half the width */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Center the image vertically */
+            justify-content: center; /* Center the image horizontally */
+            background: #ffffff; /* White background for box-like effect */
+            border: 2px solid #8a2be2; /* Border to define the box */
+            border-radius: 10px; /* Rounded corners */
+            margin: 20px; /* Space around the box */
+            overflow: hidden; /* Hide overflow to prevent image from spilling out */
+            padding: 0; /* Remove padding */
+            height: 100%; /* Allow the image to fill the height of the section */
+        }
+
+        .hero-image img {
+            max-width: 100%; /* Make sure the image fits */
+            max-height: 100%; /* Limit height to fit the container */
+            object-fit: cover; /* Maintain aspect ratio and cover the area */
+            border-radius: 10px; /* Round corners of the image */
+            display: block; /* Remove bottom margin/padding in images */
+        }
+
+        /* Get Started Button Styles */
+        .cta-btn {
+            background: linear-gradient(135deg, #e100ff, #7f00ff); /* Gradient matching the background */
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px; /* Increased font size */
+            transition: background 0.001s; /* Smooth background transition */
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #ba55d3, #8a2be2); /* Darker gradient on hover */
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+            animation: fadeIn 0.5s ease-in; /* Faster fade in for modal */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background: linear-gradient(135deg, #8a2be2, #da70d6); /* Purple and orchid gradient */
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            text-align: center;
+            color: white;
+            animation: fadeIn 1s ease-in; /* Faster fade in for modal content */
+        }
+
+        /* Close Button */
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Buttons for Login and Signup */
+        .option-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #8a2be2, #da70d6); /* Match purple and orchid */
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            animation: fadeIn 1.5s ease-in; /* Button animation */
+        }
+
+        .option-btn:hover {
+            background: linear-gradient(135deg, #6a0dad, #ba55d3); /* Darker gradient on hover */
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .feature {
+            background: rgba(255, 255, 255, 0.2); /* Transparent white box */
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .feature p {
+            color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="text-container">
+            <h1>Welcome to AASHA</h1>
+            <p>Actionable Assistance for Safety, Hope, and Awareness</p>
+            <a href="#" class="cta-btn" id="getStartedBtn">Get Started</a>
+        </div>
+        <div class="hero-image">
+            <img src="/images/lady.jpg" alt="Woman" /> <!-- Image inside the box -->
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature">
+            <h3>Community Support</h3>
+            <p>Engaging on a women’s safety website fosters connections among women, allowing them to share experiences and advice. This sense of community empowers individuals, helping them feel less isolated and more confident in addressing safety concerns.</p>
+        </div>
+        <div class="feature">
+            <h3>Access to Resources</h3>
+            <p>These websites provide essential information, such as self-defense techniques and legal rights, tailored to specific situations. Participation allows women to obtain practical advice that enhances their preparedness and awareness in real-life scenarios.</p>
+        </div>
+        <div class="feature">
+            <h3>Awareness and Change</h3>
+            <p>By actively sharing experiences, women can highlight safety issues and advocate for necessary changes. This collective action can influence policies and inspire the development of innovative safety solutions, contributing to a safer environment for all.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Your Website. All rights reserved.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Select an Option</h2>
+            <button class="option-btn" id="loginBtn">Login</button>
+            <a href="/signup"> <button class="option-btn">Signup</button></a>
+
+            <!-- Login Options -->
+            <div id="loginOptions" class="hidden">
+                <h3>Login As:</h3>
+                <a href="/userlogin"> <button class="option-btn">User</button></a>
+                <a href="/admin_login"> <button class="option-btn">Admin</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("getStartedBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // Get the login button
+        var loginBtn = document.getElementById("loginBtn");
+
+        // Get the login options div
+        var loginOptions = document.getElementById("loginOptions");
+
+        // When the user clicks the button, open the modal 
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // When the user clicks the login button, show login options
+        loginBtn.onclick = function() {
+            loginOptions.classList.toggle("hidden");
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+            loginOptions.classList.add("hidden"); // Reset hidden state
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+                loginOptions.classList.add("hidden"); // Reset hidden state
+            }
+        }
+    </script>
+</body>
+</html>

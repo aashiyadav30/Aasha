@@ -1,0 +1,145 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #D3D3D3;
+    color: black;
+}
+
+/* Header Styles */
+header {
+    background-color: #001F3F;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main Content */
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 40px 20px; /* Increased padding for more space */
+}
+
+/* Alert Box Styles */
+.alert-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 40px; /* Increased padding for more space */
+}
+
+.alert {
+    padding: 30px; /* Increased size of the alert box */
+    border-radius: 10px;
+    font-size: 22px; /* Slightly larger font */
+    text-align: center;
+    min-height: 180px; /* Increased height */
+    width: 32%; /* Slightly wider alert box */
+    margin: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Alert Colors */
+.alert-dangerous {
+    background-color: rgba(255, 0, 0, 0.1);
+    border: 2px solid rgba(255, 0, 0, 0.5);
+}
+
+.alert-moderate {
+    background-color: rgba(255, 165, 0, 0.1);
+    border: 2px solid rgba(255, 165, 0, 0.5);
+}
+
+.alert-safe {
+    background-color: rgba(0, 128, 0, 0.1);
+    border: 2px solid rgba(0, 128, 0, 0.5);
+}
+
+/* Bottom Blocks Section */
+.bottom-blocks-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto; /* Increased margin for spacing */
+    overflow: hidden;
+}
+
+.bottom-blocks {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+    margin-bottom: 20px; /* Space between blocks and slider buttons */
+}
+
+.block {
+    background-color: #001F3F;
+    padding: 20px;
+    border-radius: 10px;
+    width: 160px;
+    text-align: center;
+    color: white;
+    margin: 0 15px;
+    flex-shrink: 0;
+}
+
+.block h3 {
+    margin-bottom: 10px;
+}
+
+.block p {
+    color: white;
+}
+
+/* Slider Controls Row */
+.slider-controls-row {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    width: 100%;
+}
+
+/* Slider Controls */
+.slider-controls {
+    display: flex;
+    justify-content: center;
+}
+
+.slider-controls button {
+    padding: 5px;
+    background-color: #001F3F;
+    color: white;
+    border: none;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.slider-controls button:hover {
+    background-color: #003366;
+}

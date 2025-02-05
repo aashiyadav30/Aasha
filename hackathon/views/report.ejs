@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submitted Reports</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Very light Azure background */
+            color: #0f4d92; /* Yale Blue text */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #0f4d92; /* Yale Blue */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Header shadow for emphasis */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px; /* Slightly larger for importance */
+            letter-spacing: 1px; /* Better spacing for a clean look */
+        }
+
+        nav a {
+            color: #f0f8ff; /* Light Azure links */
+            text-decoration: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Report Container Styles */
+        .report-container {
+            padding: 30px;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #ffffff; /* White for clean contrast */
+            border-radius: 10px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Stronger shadow for depth */
+        }
+
+        .report-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #0f4d92; /* Yale Blue */
+            font-weight: bold;
+        }
+
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 15px;
+            border: 1px solid #0f4d92; /* Yale Blue border */
+            text-align: left;
+            font-size: 16px;
+        }
+
+        th {
+            background-color: #0f4d92; /* Yale Blue header */
+            color: white;
+        }
+
+        /* Alternating Row Backgrounds */
+        tr:nth-child(even) td {
+            background-color: #6495ed; /* Cornflower Blue for alternating rows */
+            color: white;
+        }
+
+        tr:nth-child(odd) td {
+            background-color: #f0ffff; /* Light Azure for contrast */
+        }
+
+        /* No Reports Message */
+        p {
+            text-align: center;
+            font-size: 18px;
+            color: #0f4d92; /* Yale Blue */
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Submitted Reports</h1>
+        <nav>
+            <a href="/form">Submit New Report</a>
+        </nav>
+    </header>
+
+    <div class="report-container">
+        <h2>Recent Reports</h2> <!-- Added a header for the report section -->
+        <% if (reports.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Description</th>
+                        <th>FIR Filed?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% reports.forEach(report => { %>
+                        <tr>
+                            <td><%= report.id %></td>
+                            <td><%= report.location %></td>
+                            <td><%= report.report_date %></td>
+                            <td><%= report.report_time %></td>
+                            <td><%= report.description %></td>
+                            <td><%= report.fir ? 'Yes' : 'No' %></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>No reports found.</p>
+        <% } %>
+    </div>
+
+</body>
+</html>

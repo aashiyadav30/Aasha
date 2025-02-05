@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signup Page</title>
+  <link rel="stylesheet" href="/css/login.css" />
+  <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+  <style>
+      /* Styling for the OTP container */
+      .otp-container {
+      margin-top: 20px;
+    }
+
+    .otp-input {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .otp-btn-container {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 30px; /* Space between OTP and Sign Up */
+    }
+
+    .otp-btn-container button {
+      padding: 6px 12px; /* Reduced padding for smaller size */
+      width: auto; /* Set width to auto so it shrinks */
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="signup-container">
+      <h2>Signup</h2> <!-- Ensure this is visible -->
+      <form action="/signup" method="POST">
+
+        <!-- Email Input -->
+        <label for="email"><i class="fas fa-lock"></i>E-mail</label>
+        <div class="input-container">
+          <i class="fas fa-envelope"></i>
+          <input class="input" type="email" name="email" placeholder="Enter your email" required />
+        </div>
+
+        <!-- Phone Number Input -->
+        <label for="phone no."><i class="fas fa-lock"></i>Phone no.</label>
+        <div class="input-container">
+          <i class="fas fa-phone"></i>
+          <input class="input" id="phone" type="tel" name="phone" placeholder="Enter your phone number" required />
+        </div>
+        
+        <!-- Username Input -->
+        <label for="username"><i class="fas fa-lock"></i>Username</label>
+        <div class="input-container">
+          <i class="fas fa-user"></i>
+          <input class="input" type="text" name="username" id="username" placeholder="Enter your username" required />
+        </div>
+
+        <!-- Location Input -->
+        <label for="State"><i class="fas fa-lock"></i>State</label>
+        <div class="input-container">
+          <i class="fas fa-map-marker-alt"></i>
+          <input class="input" type="text" name="state" placeholder="Enter your state" required />
+        </div>
+
+        <label for="City"><i class="fas fa-lock"></i>City</label>
+        <div class="input-container">
+          <i class="fas fa-map-marker-alt"></i>
+          <input class="input" type="text" name="city" placeholder="Enter your city" required />
+        </div>
+
+        <!-- Password Input -->
+        <label for="password"><i class="fas fa-lock"></i>Password</label>
+        <div class="input-container">
+          <i class="fas fa-lock"></i>
+          <input class="input" type="password" name="password" placeholder="Enter your password" required />
+        </div>
+
+        <!-- Confirm Password Input -->
+        <label for="confirm password"><i class="fas fa-lock"></i>Confirm Password</label>
+        <div class="input-container">
+          <i class="fas fa-lock"></i>
+          <input class="input" type="password" name="confirm_password" placeholder="Confirm your password" required />
+        </div>
+
+              <!-- OTP Section -->
+              <div class="otp-container">
+
+               
+                <!-- Get OTP Button -->
+                <div class="otp-btn-container">
+                  <button type="button" id="get-otp" class="btn">Get OTP</button>
+                </div>
+                 <!-- OTP Input -->
+                 <div class="input-container">
+                  <label for="otp"><i class="fas fa-key"></i>Enter OTP</label>
+                  <input class="input" type="text" name="otp" id="otp" placeholder="Enter OTP" required />
+                </div>
+      
+      
+              </div>
+      
+
+        <p class="p1">NOTE: Your details will be confidential, only your username will be displayed</p>
+        <input type="submit" class="btn" value="Sign Up" />
+      </form>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('get-otp').addEventListener('click', function() {
+        alert('Email sent successfully');
+    });
+</script>
+  <script type="text/javascript" src="/js/login.js"></script>
+</body>
+</html>

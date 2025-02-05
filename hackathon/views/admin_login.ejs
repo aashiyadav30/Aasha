@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login Page</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        <form action="/admin/login" method="POST">
+            <label for="admin_id"><i class="fas fa-user-shield"></i> Admin ID</label>
+            <div class="input-container">
+                <input type="text" id="admin_id" name="admin_id" placeholder="Enter your admin ID" required>
+            </div>
+
+            <label for="security_pin"><i class="fas fa-key"></i> Security PIN</label>
+            <div class="input-container">
+                <input type="password" id="security_pin" name="security_pin" placeholder="Enter your security PIN" required>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
+</html>

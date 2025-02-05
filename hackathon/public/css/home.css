@@ -1,0 +1,207 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #7f00ff, #e100ff);
+    animation: fadeIn 1s ease-in; /* Faster fade in animation */
+    color: white;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+ /* Modal Content */
+ .modal-content {
+    background: linear-gradient(135deg, #8a2be2, #da70d6); /* Purple and orchid gradient */
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    text-align: center;
+    color: white;
+    animation: fadeIn 1s ease-in; /* Faster fade in for modal content */
+}
+
+
+        /* Close Button */
+        .close {
+            color: #fff;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #ffcc00;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Buttons for Login and Signup */
+        .option-btn {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: linear-gradient(135deg, #8a2be2, #da70d6); /* Match purple and orchid */
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            animation: fadeIn 1.5s ease-in; /* Button animation */
+        }
+
+        .option-btn:hover {
+            background: linear-gradient(135deg, #6a0dad, #ba55d3); /* Darker gradient on hover */
+        }
+
+        /* Get Started Button Styles */
+        .cta-btn {
+            background: linear-gradient(135deg, #e100ff, #7f00ff); /* Gradient matching the background */
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 20px; /* Increased font size */
+            transition: background 0.001s; /* Smooth background transition */
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(135deg, #ba55d3, #8a2be2); /* Darker gradient on hover */
+        }
+
+        /* Hidden for additional options */
+        .hidden {
+            display: none;
+        }
+
+
+/* Header Styles */
+header {
+    padding: 20px;
+    display: flex;
+    justify-content: center; /* Center the entire block */
+    align-items: center;
+    background: transparent;
+}
+
+header .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%; /* Increased width for larger block */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight transparent background */
+    padding: 30px 40px; /* Increased padding for a bigger block */
+    border-radius: 15px; /* Slightly more rounded corners */
+}
+
+header .logo {
+    font-size: 32px; /* Increased logo size */
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly; /* Distribute the links evenly */
+    flex: 1; /* Allow the list to take up the full width */
+    margin: 0;
+    padding: 0;
+}
+
+header ul li {
+    flex-grow: 1; /* Ensure equal space for each item */
+    text-align: center;
+}
+
+header ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+}
+
+/* Login Button */
+header .login-btn {
+    background: linear-gradient(135deg, #9f60ff, #5daeff);
+    padding: 15px 25px; /* Increased padding for a bigger button */
+    border-radius: 25px;
+    color: white;
+    text-decoration: none;
+    font-size: 18px; /* Increased font size for the login button */
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background: linear-gradient(135deg, #9f60ff, #5daeff);
+    padding: 15px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+/* Features Section */
+.features {
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.2); /* Transparent white box */
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+/* Features Section Title Styles */
+.features h3 {
+    font-weight: bold; /* Make the titles bold */
+    font-size: 24px; /* Increase the font size */
+}
+
+.feature p {
+    color: #f0f0f0;
+}
+
+
+
+
+    .option-btn a {
+        color: white; 
+        text-decoration: none; 
+        font-size: 16px;
+        display: inline-block; 
+    }

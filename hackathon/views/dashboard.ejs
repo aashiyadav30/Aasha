@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/css1/dashboard.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <a href="/index">Chat Forum</a>
+            <!-- Replaced "Insight" link with the download link and changed name to "Heatmap" -->
+            <a href="#" onclick="downloadExcel()">Heatmap</a>
+            <a href="/report">Report</a>
+            <a href="/emergency">Emergency Contact</a>
+            <a href="/legal-support">Legal Support</a>
+        </nav>
+    </header>
+    <script>
+          function downloadExcel() {
+              // URL of the heatmap Excel file on your local server
+              const excelFilePath = 'http://localhost:8000/heatmap.xlsx'; 
+              
+              // Create a temporary link element
+              const link = document.createElement('a');
+              link.href = excelFilePath;
+              link.download = 'heatmap.xlsx'; // This is the name the file will be saved as
+              
+              // Append the link to the body
+              document.body.appendChild(link);
+              
+              // Programmatically click the link to trigger the download
+              link.click();
+              
+              // Remove the link after downloading
+              document.body.removeChild(link);
+            }
+
+    </script>
+    <!-- Main Content Section -->
+    <div class="content">
+        <div class="alert-container">
+            <div class="alert alert-dangerous">
+                <h3>Alert: Critical Risk Zones</h3>
+                <p>Mumbai (120 incidents)<br>Delhi (150 incidents)<br>Bhopal (80 incidents)</p>
+            </div>
+
+            <div class="alert alert-moderate">
+                <h3>Alert: Caution Areas</h3>
+                <p>Kolkata (60 incidents)<br>Chennai (40 incidents)<br>Pune (50 incidents)</p>
+            </div>
+
+            <div class="alert alert-safe">
+                <h3>Alert: Secure Zones</h3>
+                <p>Hyderabad (20 incidents)<br>Ahmedabad (15 incidents)<br>Jaipur (10 incidents)</p>
+            </div>
+        </div>
+
+        <!-- Bottom Blocks Section with Sliding -->
+        <div class="bottom-blocks-wrapper">
+            <div class="bottom-blocks">
+                <div class="block">
+                    <h3>Workplace Safety</h3>
+                    <p>Promote a safe and respectful environment by addressing harassment and knowing your rights. Ensure workplace policies protect against discrimination and inappropriate behavior.</p>
+                </div>
+                <div class="block">
+                    <h3>Self-Defense Techniques</h3>
+                    <p>Promote a safe and respectful environment by addressing harassment and knowing your rights. Ensure workplace policies protect against discrimination and inappropriate behavior.</p>
+                </div>
+                <div class="block">
+                    <h3>Cybersecurity for Women</h3>
+                    <p>Use strong passwords, enable two-factor authentication, and be cautious about sharing personal information online. Recognize phishing scams and protect against cyberstalking and identity theft.</p>
+                </div>
+                <div class="block">
+                    <h3>Emotional Well-Being</h3>
+                    <p>Manage stress, anxiety, and depression through mindfulness, therapy, and maintaining a healthy work-life balance. Focus on building mental resilience and coping strategies.</p>
+                </div>
+                <div class="block">
+                    <h3>Support Networks</h3>
+                    <p>Develop strong personal and professional support systems. Know where to turn for emotional, legal, or financial help, whether from friends, family, or professional resources.</p>
+                </div>
+                <div class="block">
+                    <h3>Financial Independence and Safety</h3>
+                    <p>Learn financial literacy to secure independence. Understand budgeting, saving, and investing while recognizing and escaping financial abuse.</p>
+                </div>
+                <div class="block">
+                    <h3>Emergency Preparedness</h3>
+                    <p>Prepare for emergencies by having kits ready, knowing evacuation routes, and keeping emergency contacts available for quick access during crises.</p>
+                </div>
+                <div class="block">
+                    <h3>Healthy Boundaries</h3>
+                    <p>Set and maintain healthy boundaries to protect your mental and emotional well-being. Recognize when boundaries are crossed and address violations assertively.</p>
+                </div>
+                <div class="block">
+                    <h3>Digital Harassment Laws</h3>
+                    <p>Understand legal protections against cyberstalking and online harassment. Learn how to gather evidence and take appropriate legal action if needed.</p>
+                </div>
+                <div class="block">
+                    <h3>Crisis Helplines</h3>
+                    <p>Know where to find 24/7 helplines for domestic violence, mental health crises, or emergencies. Access immediate support and assistance when needed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Slider Controls Row at the Bottom of the Page -->
+    <div class="slider-controls-row">
+        <!-- Slider Controls positioned to the bottom of the page -->
+        <div class="slider-controls">
+            <button id="prev">⬅</button>
+            <button id="next">➡</button>
+        </div>
+    </div>
+
+    <script>
+        const slider = document.querySelector('.bottom-blocks');
+        const blocks = document.querySelectorAll('.block');
+        let scrollAmount = 0;
+        const blockWidth = blocks[0].offsetWidth + 30; // Width of one block + margin
+    
+        document.getElementById('next').addEventListener('click', () => {
+            scrollAmount -= blockWidth;
+            if (Math.abs(scrollAmount) >= blockWidth * (blocks.length - 6)) {
+                scrollAmount = -blockWidth * (blocks.length - 6); // Prevent scrolling beyond the last block
+            }
+            slider.style.transform = `translateX(${scrollAmount}px)`; // Corrected template literal
+        });
+    
+        document.getElementById('prev').addEventListener('click', () => {
+            scrollAmount += blockWidth;
+            if (scrollAmount > 0) {
+                scrollAmount = 0; // Prevent scrolling beyond the first block
+            }
+            slider.style.transform = `translateX(${scrollAmount}px)`; // Corrected template literal
+        });
+    </script>
+    
+</body>
+
+</html>

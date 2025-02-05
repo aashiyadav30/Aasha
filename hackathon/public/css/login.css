@@ -1,0 +1,289 @@
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #7f00ff, #e100ff);
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;  /* Vertically center */
+  height: 100vh;  /* Full viewport height */
+  margin: 0;
+  overflow: hidden; /* Prevent scrolling outside the card */
+}
+
+.signup-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 40px;  /* Adds padding inside the box */
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 350px;  /* Smaller width for the card */
+  height: 500px; /* Adjust the height for the scroll effect */
+  margin: 20px 0; /* Adds space at the top and bottom */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+h2 {
+  text-align: center;
+  color: #333;  /* Ensure the text is not the same color as the background */
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+label {
+  font-weight: bold;
+  color: #555;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9f60ff;
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px; /* Space for the icons */
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover {
+  border-color: #9f60ff;
+  box-shadow: 0 0 8px rgba(159, 96, 255, 0.5);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border-color: #5daeff;
+  outline: none;
+  box-shadow: 0 0 12px rgba(93, 174, 255, 0.6);
+}
+
+input[type="submit"] {
+  width: 100%;
+  background: linear-gradient(135deg, #9f60ff, #5daeff);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #5daeff, #9f60ff);
+}
+
+input::placeholder {
+  text-align: left;  /* Left-align placeholder text */
+  color: #999;  /* Light gray color for placeholder */
+  font-size: 14px;
+  opacity: 1;  /* Ensure visibility across browsers */
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  padding-left: 40px; /* Space for the icons */
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-container input {
+  margin-right: 5px;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-footer a {
+  color: #5daeff;
+  text-decoration: none;
+}
+
+.login-footer a:hover {
+  color: #9f60ff;
+}
+
+.btn {
+  width: 100%;
+  background: linear-gradient(135deg, #9f60ff, #5daeff);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #5daeff, #9f60ff);
+}
+
+.p1 {
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+
+/* Login container styling */
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  width: 350px;
+  transform: translateY(-100vh);
+  animation: slideDown 2s forwards;
+}
+
+@keyframes slideDown {
+  0% {
+      transform: translateY(-100vh);
+  }
+  100% {
+      transform: translateY(0);
+  }
+}
+
+/* Heading styling */
+h2 {
+  text-align: center;
+  color: #333; /* Dark text for contrast */
+  margin-bottom: 25px;
+  font-size: 24px;
+}
+
+/* Label and input field styling */
+label {
+  font-weight: bold;
+  color: #555; /* Dark gray for labels */
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Input container with icon styling */
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-container i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #7f00ff; /* Purple color for icons */
+  opacity: 0.5;
+  transition: color 0.3s ease;
+}
+
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 6px;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+input[type="text"]:hover, input[type="password"]:hover {
+  border-color: #7f00ff; /* Purple border on hover */
+  box-shadow: 0 0 8px rgba(127, 0, 255, 0.5); /* Purple shadow */
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+  border-color: #e100ff; /* Bright pink border on focus */
+  outline: none;
+  box-shadow: 0 0 12px rgba(225, 0, 255, 0.6); /* Bright pink focus shadow */
+}
+
+input[type="text"]:focus + i, input[type="password"]:focus + i {
+  color: #e100ff; /* Bright pink color on focus */
+  opacity: 1;
+}
+
+/* Submit button styling */
+input[type="submit"] {
+  width: 100%;
+  background: linear-gradient(135deg, #7f00ff, #e100ff); /* Purple to pink gradient */
+  color: white; /* White text color */
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+input[type="submit"]:hover {
+  background: linear-gradient(135deg, #e100ff, #7f00ff); /* Reverse gradient on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Checkbox styling */
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.checkbox-container input {
+  margin-right: 5px;
+}
+
+/* Footer styling */
+.login-footer {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.login-footer a {
+  color: #e100ff; /* Bright pink link color */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.login-footer a:hover {
+  color: #7f00ff; /* Purple link hover effect */
+}
+
+/* Icon colors for labels */
+label i {
+  margin-right: 10px;
+  color: #7f00ff; /* Purple icon color */
+}
+
+
+
+
+

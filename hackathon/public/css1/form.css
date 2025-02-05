@@ -1,0 +1,101 @@
+ /* General Styles */
+ body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(135deg, #395176, #90b1cf); /* Deep blue to aqua gradient */
+    color: white; /* White text for contrast */
+}
+
+/* Header Styles */
+header {
+    background-color: rgba(57, 81, 118, 0.9); /* Semi-transparent header background */
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Enhanced shadow for depth */
+}
+
+/* Form Styles */
+.form-container {
+    max-width: 600px;
+    margin: 40px auto; /* Center the form */
+    background: rgba(146, 149, 183, 0.9); /* Slightly transparent light grayish-blue */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.form-container h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center heading */
+    color: #395176; /* Dark blue for heading contrast */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Space between form fields */
+}
+
+.form-group label {
+    display: block; /* Make labels block-level */
+    margin-bottom: 5px; /* Space below labels */
+    color: #395176; /* Dark blue for labels */
+}
+
+.form-group input, .form-group textarea {
+    width: 100%; /* Full width for inputs */
+    padding: 10px; /* Padding inside inputs */
+    border: 1px solid #90b1cf; /* Aqua border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width calculation */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background for inputs */
+    color: #395176; /* Dark blue text for inputs */
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.yes-no-group {
+    margin-top: 15px; /* Space above Yes/No options */
+    display: flex; /* Use flexbox for inline layout */
+    align-items: center; /* Center items vertically */
+}
+
+.yes-no-group label {
+    margin-right: 15px; /* Space between labels */
+    display: flex; /* Flex to align radio button with label */
+    align-items: center; /* Center radio button with text */
+}
+
+.yes-no-group input[type="radio"] {
+    width: 20px; /* Larger width for radio buttons */
+    height: 20px; /* Larger height for radio buttons */
+    margin-right: 5px; /* Space between radio button and label text */
+}
+
+.fir-id-group {
+    display: none; /* Initially hidden */
+    margin-top: 15px;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #395176, #9295b7); /* Gradient background for the button */
+    color: white; /* Button text color */
+    border: 2px solid white; /* Clear white border */
+    padding: 10px 15px; /* Button padding */
+    border-radius: 5px; /* Rounded corners for button */
+    cursor: pointer; /* Pointer on hover */
+    width: 100%; /* Full width button */
+    font-size: 16px; /* Button font size */
+    transition: background 0.3s ease, border-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.submit-btn:hover {
+    background: rgba(255, 255, 255, 0.1); /* Change background color on hover */
+    border-color: #90b1cf; /* Change border color on hover for better visibility */
+}

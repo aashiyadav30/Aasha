@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #e1f5fe; /* Light Cornflour Blue background */
+            color: #0d47a1; /* Dark Cornflour Blue for text */
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #1e88e5; /* Medium Cornflour Blue background */
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px; /* Header title font size */
+            color: white; /* White text for header */
+        }
+
+        nav {
+            display: flex;
+            gap: 20px; /* Space between nav items */
+        }
+
+        nav a {
+            color: white; /* White color for nav links */
+            text-decoration: none;
+            font-size: 18px; /* Font size for nav links */
+        }
+
+        nav a:hover {
+            text-decoration: underline; /* Underline links on hover */
+        }
+
+        /* Main Content Area */
+        .content {
+            padding: 40px;
+            text-align: center; /* Center the content */
+        }
+
+        .content h2 {
+            color: #0d47a1; /* Dark Cornflour Blue for section titles */
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 18px; /* Font size for paragraphs */
+            color: #1565c0; /* Medium Cornflour Blue for paragraph text */
+        }
+
+        .section {
+            background-color: rgba(30, 136, 229, 0.1); /* Light Cornflour Blue background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            margin: 20px auto; /* Add some margin for separation */
+            width: 80%; /* Make the section block a bit narrower */
+            color: #0d47a1; /* Dark Cornflour Blue text inside content blocks */
+        }
+
+        /* Button Styles */
+        .button {
+            background-color: #1e88e5; /* Medium Cornflour Blue button */
+            color: white; /* White text for contrast */
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for button */
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #1565c0; /* Darker Cornflour Blue hover effect */
+        }
+
+        /* Table Styles */
+        table {
+            margin: auto;
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 600px;
+            background-color: #f0f4c3; /* Light cream for table */
+            border-radius: 10px;
+            overflow: hidden; /* To round corners of table */
+        }
+
+        th {
+            background-color: #1e88e5; /* Medium Cornflour Blue for header */
+            color: white; /* White text for header */
+            padding: 10px;
+            border: 1px solid #0d47a1; /* Dark Cornflour Blue border */
+        }
+
+        td {
+            background-color: #e1f5fe; /* Light Cornflour Blue for table rows */
+            color: #0d47a1; /* Dark Cornflour Blue text */
+            padding: 10px;
+            border: 1px solid #0d47a1; /* Dark Cornflour Blue border */
+        }
+        a{
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 16px;
+    display: inline-block; /* Ensure proper alignment */
+
+}
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 5px 0; /* Reduced padding for smaller footer */
+            background-color: #1e88e5; /* Medium Cornflour Blue background */
+            color: white; /* White text */
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+
+            .section {
+                width: 90%; /* Wider sections on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav>
+            <a href="#data-analysis">Data Analysis</a>
+            <a href="#user-detail">User Detail</a>
+            <a href="#counselor-schedule">Counselor Schedule</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <div class="content">
+        <!-- Data Analysis Section -->
+        <div class="section" id="data-analysis">
+            <h2>Data Analysis Map</h2>
+            <p>Click below to download the analysis data.</p>
+            <a href="#" onclick="downloadExcel()"> <button class="button">Download Excel</button></a>
+            <!-- JavaScript function to trigger file download -->
+            <script>
+               function downloadExcel() {
+              // URL of the heatmap Excel file on your local server
+              const excelFilePath = 'http://localhost:8000/heatmap%20(1).xlsx'; 
+              
+              // Create a temporary link element
+              const link = document.createElement('a');
+              link.href = excelFilePath;
+              link.download = 'heatmap.xlsx'; // This is the name the file will be saved as
+              
+              // Append the link to the body
+              document.body.appendChild(link);
+              
+              // Programmatically click the link to trigger the download
+              link.click();
+              
+              // Remove the link after downloading
+              document.body.removeChild(link);
+            }
+            </script>
+        </div>
+
+      
+        <!-- User Detail Section -->
+        <div class="section" id="user-detail">
+            <h2>User Detail</h2>
+            <p>Detailed information about the reports.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Location</th>
+                        <th>Report Date</th>
+                        <th>Report Time</th>
+                        <th>Description</th>
+                        <th>FIR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>5</td>
+                        <td>Haryana</td>
+                        <td>2024-10-20</td>
+                        <td>10:30:00</td>
+                        <td>Hi</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Haryana</td>
+                        <td>2024-10-20</td>
+                        <td>10:30:00</td>
+                        <td>Hi</td>
+                        <td>False</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Gujrat</td>
+                        <td>2024-03-11</td>
+                        <td>16:09:00</td>
+                        <td>Something</td>
+                        <td>True</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Counselor Schedule -->
+        <div class="section" id="counselor-schedule">
+            <h2>Counselor Schedule</h2>
+            <p>Manage appointments for the counselors.</p>
+            <button class="button" onclick="openCalendar()">Open Google Calendar</button>
+            <button class="button" onclick="viewScheduleMeeting()"> Schedule calendar</button>
+            <!-- JavaScript function to open Google Calendar -->
+            <script>
+                function openCalendar() {
+                    window.open('https://calendar.google.com/calendar/r?cid=sidrahaaishah1@gmail.com', '_blank'); // Opens Google Calendar with specified email
+                }
+
+                function viewScheduleMeeting() {
+                    alert('This is running on another port'); // Placeholder for meeting schedule logic
+                }
+            </script>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Admin Dashboard. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>State/UT Data Table</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background: linear-gradient(135deg, #7f00ff, #e100ff); /* Purple gradient */
+            color: white;
+        }
+        .table-container {
+                max-width: 80%;
+                margin: 0 auto; /* Center the table horizontally */
+                overflow-x: auto; /* Make the table horizontally scrollable */
+                max-height: 300px; /* Limit the height to make it scrollable vertically */
+                overflow-y: auto;
+                border: 1px solid black;
+                margin-bottom: 20px; /* Add margin below the table */
+}
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #121212;
+        }
+        .center-image {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2 style="text-align: center;">State/UT Data Table</h2>
+    <!-- <a href="C:\Users\ajeet\Downloads\heatmap (1).xlsx" download> Excel File</a> -->
+
+    <img src="/images/insights.jpg" class="center-image">
+    <br><br>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>State/UT Name</th>
+                    <th>Data Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% stateData.forEach(function(state) { %>
+                <tr>
+                    <td><%= state.name %></td>
+                    <td><%= state.data %></td>
+                </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

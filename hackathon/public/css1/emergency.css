@@ -1,0 +1,88 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #d3d3d3; /* Light grey background for the outer page */
+    color: white; /* Change text color to black for contrast */
+}
+
+/* Header Styles */
+header {
+    background-color: #213a5c; /* Dark blue header */
+    color: white; /* White text in header for contrast */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 70px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Outer Box Styles */
+.outer-box {
+    background-color: #d3d3d3; /* Light grey outer box color */
+    padding: 40px 0; /* Space around the inner box */
+}
+
+/* Main Content Styles */
+.content {
+    max-width: 700px;
+    margin: 0 auto; /* Center the content */
+    background: #213a5c; /* Dark blue background for the inner box */
+    padding: 25px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Stronger shadow for depth */
+}
+
+h2 {
+    text-align: center;
+    color: white; /* Dark grey heading */
+    margin-bottom: 25px;
+    font-size: 22px;
+}
+
+.contact-info {
+    margin-bottom: 25px;
+}
+
+.contact-info h3 {
+    margin: 0;
+    font-size: 20px;
+    color: white; /* Darker grey */
+    margin-bottom: 8px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Button Styles */
+.back-btn {
+    display: block;
+    margin: 30px auto; /* Center the button */
+    background-color: #1d54a2; /* Dark blue for button */
+    color: white; /* Button text color */
+    border: 1px solid white; /* Dark blue border */
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #1b669b; /* Lighter blue on hover */
+}
+
+a {
+    text-decoration: none;
+    color: black; /* Change link color to black */
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+}

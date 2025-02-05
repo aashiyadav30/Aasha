@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Download Heatmap Excel File</title>
+</head>
+<body>
+ 
+  
+  <!-- Button to download the heatmap Excel file -->
+  <button onclick="downloadExcel()">Download Heatmap Excel</button>
+
+  <script>
+    function downloadExcel() {
+      // URL of the heatmap Excel file on your local server
+      const excelFilePath = 'http://localhost:8000/heatmap%20(1).xlsx'; 
+      
+      // Create a temporary link element
+      const link = document.createElement('a');
+      link.href = excelFilePath;
+      link.download = 'heatmap.xlsx'; // This is the name the file will be saved as
+      
+      // Append the link to the body
+      document.body.appendChild(link);
+      
+      // Programmatically click the link to trigger the download
+      link.click();
+      
+      // Remove the link after downloading
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
